@@ -8,9 +8,98 @@
     --color-text-darkGrayBlue: hsl(240, 6%, 50%);
 
     --color-divider-grayBlue: hsl(240, 5%, 91%);
-    --font-size: 12px;
+    --font-size: 13px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family:  'Kumbh Sans', sans-serif;
 }
 
 body {
-    font-family: 'Kumbh Sans', sans-serif;
+    height: 100vh;
+    min-height: 50em;
+    background: linear-gradient(180deg ,var(--color-background-violet) 0%, var(--color-background-blue) 100%) no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 20em;
+    height: 34em;
+    background: white;
+    border-radius: 1.4em;
+    position: relative;
+}
+
+.card__img {
+    background: url(./images/illustration-woman-online-mobile.svg) no-repeat center;
+    width: 18em;
+    height: 15em;
+    position: absolute;
+    top: -23%;
+    left: calc(50% - 10em);
+}
+
+.card__img::before{
+    content: '';
+    background: url(./images/bg-pattern-mobile.svg) no-repeat center;
+    display: block;
+    position: absolute;
+    top: 15%;
+    left: calc(50% - 8.3em);
+    width: 18em;
+    height: 18em;
+}
+
+.card__content {
+    width: 85%;
+    margin: 8.5em auto 0;
+    height: 25em;
+    overflow: hidden;
+}
+
+.card__title {
+    font-size: 2.4em;
+    text-align: center;
+    margin-bottom: 0.9em;
+}
+
+.question-container {
+    border-bottom: solid 1px var(--color-divider-grayBlue);
+    padding: 1em 0;
+}
+
+.question{
+    font-size: var(--font-size);
+    position: relative;
+}
+
+.question::after{
+    content: url(./images/icon-arrow-down.svg);
+    position: absolute;
+    right: 0;
+}
+
+/* cuando abrimos un details, giramos el icono flecha */
+.question-container[open] .question::after {
+    transform: rotate(180deg);
+}
+
+/* cuando activamos un details, aumentamos el weight de la pregunta */
+.question-container[open] .question{
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-veryDarkGrayBlue);
+}
+
+.answer {
+    color: var(--color-text-darkGrayBlue);
+    font-size: var(--font-size);
+    padding: 0.9em 0 0;
 }
