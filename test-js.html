@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola</h1>
+    
+
+
+    <button>Cambiar de usuario</button>
+
+    <script>
+        let miBoton = document.querySelector('button');
+        let miTitulo = document.querySelector('h1');
+
+        // FUNCION PARA SOLICITAR UN NOMBRE, ALMACENARLO EN EL LOCALSTORAGE Y CAMBIAR EL TITULO
+        function estableciendoNombreUsuario() {
+            // solicito el nombre
+            let miNombre = prompt("Por favor, ingresa tu nombre.");
+            // almaceno el nombre en el localStorage
+            localStorage.setItem('nombre', miNombre);
+            // inserto el nombre dentro del titulo h1
+            miTitulo.textContent = 'Mozilla es genial; ' + miNombre;
+        }
+
+        // compruebo si el local storage tiene el item nombre
+        if (!localStorage.getItem('nombre')){
+            // si no lo tiene ejecuto la funcion que solicita el nombre y lo almacena
+            estableciendoNombreUsuario();
+        }else{
+            // si tiene el item 'nombre' almacenado lo obtenemos y lo insertamos en el titulo
+            let nombreAlmacenado = localStorage.getItem('nombre');
+            miTitulo.textContent = 'Mozilla es genial, ' + nombreAlmacenado;
+        }
+
+        // asigno la funcion al boton
+        miBoton.onclick= function() {estableciendoNombreUsuario()};
+    </script>
+</body>
+</html>
