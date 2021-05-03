@@ -111,6 +111,11 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+    body{
+        min-height: 35em;
+        align-items: center;
+    }
+
     .card{
         width: 52em;
         height: 29em;
